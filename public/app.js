@@ -33,18 +33,18 @@ function spawnComet() {
   comet.className = "comet";
 
   // pick a random vertical start
-  const startY = Math.random() * window.innerHeight;
+  const startY = Math.random() * window.innerHeight*2;
 
   // define CSS vars for animation endpoints
   comet.style.setProperty("--start-x", `-50px`);
   comet.style.setProperty("--start-y", `${startY}px`);
   comet.style.setProperty("--end-x",   `${window.innerWidth + 50}px`);
-  comet.style.setProperty("--end-y",   `${startY - window.innerHeight * 0.2}px`);
+  comet.style.setProperty("--end-y",   `${startY - window.innerHeight * 0.4}px`);
 
   document.body.appendChild(comet);
 
   // remove when done (match your comet animation duration)
-  setTimeout(() => comet.remove(), 5000);
+  setTimeout(() => comet.remove(), 10000);
 }
 
 // ======================
@@ -52,12 +52,12 @@ function spawnComet() {
 // ======================
 document.addEventListener("DOMContentLoaded", () => {
   // generate bright static stars with pronounced twinkle
-  makeStars(".stars-layer1", 200, [1, 3], [0.6, 1]);  // far layer
+  makeStars(".stars-layer1", 500, [1, 3], [0.6, 1]);  // far layer
   makeStars(".stars-layer2", 100, [2, 4], [0.6, 1]);  // mid layer
 
   // spawn first comet immediately, then every 7s
   spawnComet();
-  setInterval(spawnComet, 7000);
+  setInterval(spawnComet, 20000);
 });
 
 // ======================
