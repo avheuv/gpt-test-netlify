@@ -1,0 +1,8 @@
+[build]
+publish = "public"
+functions = "netlify/functions"
+
+[[redirects]]
+  from = "/api/chatgpt"
+  to = "/.netlify/functions/chatgpt"
+  status = 200
