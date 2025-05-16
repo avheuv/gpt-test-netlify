@@ -45,9 +45,8 @@ body {
 
 /* —————— 2) Aurora Bands —————— */
 .layer.aurora {
-  --g-angle: 100deg;
   background: linear-gradient(
-    var(--g-angle),
+    100deg,
     rgba(0,20,80,0.3) 0%,
     rgba(0,200,150,0.3) 25%,
     rgba(255,50,50,0.3) 50%,
@@ -56,21 +55,13 @@ body {
   );
   background-size: 300% 300%;
   filter: blur(60px);
-  transform-origin: center center;
   animation:
     auroraMove   5s  ease-in-out infinite alternate,
-    auroraAngle  5s linear        infinite alternate;
-  
   z-index: 1;
 }
 @keyframes auroraMove {
   0%   { background-position: 0%   50%; }
   100% { background-position: 100% 50%; }
-}
-
-@keyframes auroraAngle {
-  0%   { --g-angle: 100deg; }
-  100% { --g-angle: 460deg; } /* 100deg + 360deg spin */
 }
 
 /* —————— 3) Star Layers (static) —————— */
