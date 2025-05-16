@@ -1,13 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>ChatGPT Prompt App (Netlify)</title>
+  <!-- Link to your new stylesheet -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Ask ChatGPT</h1>
-  <textarea id="prompt" rows="5" cols="40" placeholder="Ask me anything..."></textarea><br>
-  <button onclick="sendPrompt()">Send</button>
-  <pre id="response"></pre>
+
+  <!-- Four animated background shapes -->
+  <div class="shape"></div>
+  <div class="shape"></div>
+  <div class="shape"></div>
+  <div class="shape"></div>
+
+  <!-- Chat UI container -->
+  <div class="chat-container">
+    <h1>Ask ChatGPT</h1>
+    <textarea
+      id="prompt"
+      rows="5"
+      placeholder="Ask me anything…"
+    ></textarea>
+    <button onclick="sendPrompt()">Send</button>
+    <pre id="response"></pre>
+  </div>
+
+  <!-- Your frontend logic -->
   <script src="app.js"></script>
 </body>
 </html>
