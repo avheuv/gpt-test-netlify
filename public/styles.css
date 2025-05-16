@@ -68,14 +68,39 @@ body {
   overflow: hidden;
 }
 
-/* Each star dot */
+/* softened, glowing stars with twinkle */
 .star {
   position: absolute;
-  border-radius: 50%;
-  background: #fff;
-  opacity: var(--star-opacity);
   width: var(--star-size);
   height: var(--star-size);
+  
+  /* use a radial gradient for a soft edge */
+  background: radial-gradient(
+    circle at center,
+    rgba(255,255,255,var(--star-opacity)) 0%,
+    rgba(255,255,255,0) 80%
+  );
+
+  /* tiny blur for even softer edges */
+  filter: blur(1px);
+  /* optional glow halo */
+  box-shadow: 0 0 4px rgba(255,255,255,0.6);
+
+  border-radius: 50%;
+  /* twinkle animation with per-star delay */
+  animation: twinkle 4s ease-in-out infinite var(--star-delay);
+}
+
+/* fade/brighten + subtle scale pulses */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: calc(var(--star-opacity) * 0.4);
+    transform: scale(1);
+  }
+  50% {
+    opacity: var(--star-opacity);
+    transform: scale(1.3);
+  }
 }
 
 /* —————— 4) Comet Styling —————— */
