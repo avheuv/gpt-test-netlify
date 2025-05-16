@@ -1,50 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>ChatGPT Prompt App</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>ChatGPT Prompt App (Netlify)</title>
+  <!-- Link to your new stylesheet -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- 1) Particle canvas container -->
-  <div id="tsparticles"></div>
+  <!-- Four animated background shapes -->
+  <div class="shape"></div>
+  <div class="shape"></div>
+  <div class="shape"></div>
+  <div class="shape"></div>
 
-  <!-- 2) Your chat UI -->
+  <!-- Chat UI container -->
   <div class="chat-container">
     <h1>Ask ChatGPT</h1>
-    <textarea id="prompt" rows="5" placeholder="Ask me anything…"></textarea>
+    <textarea
+      id="prompt"
+      rows="5"
+      placeholder="Ask me anything…"
+    ></textarea>
     <button onclick="sendPrompt()">Send</button>
     <pre id="response"></pre>
   </div>
 
-  <!-- 3) Particles.js library -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.min.js"></script>
-  <script>
-    tsParticles.load("tsparticles", {
-      fullScreen: { enable: true, zIndex: 0 },
-      particles: {
-        number:      { value: 60, density: { enable: true, area: 800 } },
-        shape:       { type: "circle" },
-        size:        { value: { min: 1, max: 4 } },
-        move:        { enable: true, speed: 1, outModes: { default: "bounce" } },
-        opacity:     { value: 0.5 },
-      },
-      interactivity: {
-        events: {
-          onHover: { enable: true, mode: "repulse" },
-          onClick: { enable: true, mode: "push" }
-        },
-        modes: {
-          repulse: { distance: 100 },
-          push:   { quantity: 4 }
-        }
-      }
-    });
-  </script>
-
-  <!-- 4) Your chat logic -->
+  <!-- Your frontend logic -->
   <script src="app.js"></script>
 </body>
 </html>
