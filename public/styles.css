@@ -31,10 +31,10 @@ body {
     circle at 40% 40%,
     #19304b 0%,
     #11323E 50%,
-    #0b1f36 100%
+    #0e3952 100%
   );
   background-size: 200% 200%;
-  animation: nebulaShift 5s ease-in-out infinite  alternate;
+  animation: nebulaShift 40s ease-in-out infinite alternate;
   z-index: 0;
 }
 @keyframes nebulaShift {
