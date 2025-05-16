@@ -30,10 +30,10 @@ body {
   background: radial-gradient(
     circle at 40% 40%,
     #19304b 0%,
-    #104e48 50%,
+    #0e443f 50%,
     #0b1f36 100%
   );
-  background-size: 200% 200%;
+  background-size: 100% 100%;
   animation: nebulaShift 5s ease-in-out infinite;
   z-index: 0;
 }
