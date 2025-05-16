@@ -30,7 +30,7 @@ body {
   background: radial-gradient(
     circle at 40% 40%,
     #19304b 0%,
-    #0e443f 50%,
+    #093530 50%,
     #0b1f36 100%
   );
   background-size: 150% 250%;
@@ -53,7 +53,7 @@ body {
   );
   background-size: 300% 300%;
   filter: blur(60px);
-  animation: auroraMove 20s ease-in-out infinite alternate;
+  animation: auroraMove 20s ease-in-out infinite;
   z-index: 1;
 }
 @keyframes auroraMove {
