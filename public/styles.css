@@ -199,3 +199,22 @@ body {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
+
+.footer-note {
+  position: fixed;
+  bottom: 12px;          /* small gap from bottom */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 0.875rem;   /* a bit smaller than body text */
+  color: white;          /* plain white */
+  opacity: 0.8;          /* slightly subtle */
+  pointer-events: none;  /* clicks pass through */
+  z-index: 4;            /* above most layers */
+}
+
+.footer-note a {
+  color: inherit;        /* link stays white */
+  text-decoration: underline;
+  pointer-events: auto;  /* allow clicks on the link */
+}
