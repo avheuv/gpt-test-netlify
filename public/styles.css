@@ -68,32 +68,38 @@ body {
   overflow: hidden;
 }
 
-/* ——— Updated .star section with more pronounced, faster twinkle ——— */
+/* softened, glowing stars with twinkle */
 .star {
-  /* size and soft gradient edge */
+  position: absolute;
   width: var(--star-size);
   height: var(--star-size);
+  
+  /* use a radial gradient for a soft edge */
   background: radial-gradient(
     circle at center,
-    rgba(255, 255, 255, var(--star-opacity)) 0%,
-    rgba(255, 255, 255, 0) 80%
+    rgba(255,255,255,var(--star-opacity)) 0%,
+    rgba(255,255,255,0) 80%
   );
-  /* soften and glow */
+
+  /* tiny blur for even softer edges */
   filter: blur(1px);
-  box-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+  /* optional glow halo */
+  box-shadow: 0 0 4px rgba(255,255,255,0.6);
+
   border-radius: 50%;
-  /* faster pulsation with staggered start */
-  animation: twinkle 2s ease-in-out infinite var(--star-delay);
+  /* twinkle animation with per-star delay */
+  animation: twinkle 4s ease-in-out infinite var(--star-delay);
 }
 
+/* fade/brighten + subtle scale pulses */
 @keyframes twinkle {
   0%, 100% {
-    opacity: calc(var(--star-opacity) * 0.2);
-    transform: scale(0.8);
+    opacity: calc(var(--star-opacity) * 0.4);
+    transform: scale(1);
   }
   50% {
     opacity: var(--star-opacity);
-    transform: scale(1.5);
+    transform: scale(1.3);
   }
 }
 
