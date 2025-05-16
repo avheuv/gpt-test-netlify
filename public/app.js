@@ -44,7 +44,7 @@ function spawnComet() {
   document.body.appendChild(comet);
 
   // remove when done (match your comet animation duration)
-  setTimeout(() => comet.remove(), 5000);
+  setTimeout(() => comet.remove(), 3000);
 }
 
 // ======================

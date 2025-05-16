@@ -53,7 +53,7 @@ body {
   );
   background-size: 300% 300%;
   filter: blur(6px);
-  animation: auroraMove 5s ease-in-out infinite;
+  animation: auroraMove 5s ease-in-out infinite alternate;
   z-index: 1;
 }
 @keyframes auroraMove {
@@ -118,7 +118,7 @@ body {
   border-radius: 50%;
   box-shadow: 0 0 8px 4px rgba(255,255,255,0.9);
   pointer-events: none;
-  animation: cometMove 5s linear forwards;
+  animation: cometMove 3s linear forwards;
   overflow: visible; /* allow the tail to show */
   z-index: 2;
 }
