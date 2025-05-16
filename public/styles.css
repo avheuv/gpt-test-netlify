@@ -1,98 +1,88 @@
 /* styles.css */
 
-/* 1. Full‐screen, animated gradient background */
+/* —————— 1) Base & nebula —————— */
 body {
   margin: 0;
-  height: 100vh;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
+  min-height: 100vh;
+  overflow-y: auto;
   font-family: sans-serif;
-  background: linear-gradient(45deg, #6a11cb, #2575fc, #ff9a9e, #fad0c4);
-  background-size: 400% 400%;
-  animation: gradientShift 20s ease infinite;
 }
 
-/* Gradient animation */
-@keyframes gradientShift {
-  0%   { background-position: 0%   50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0%   50%; }
-}
-
-/* 2. Floating geometric shapes */
-.shape {
+/* Nebula background: radial gradient that slowly drifts */
+.layer.nebula {
   position: absolute;
-  border-radius: 0;
-  clip-path: polygon(
-    50% 0%,
-    61% 35%,
-    98% 35%,
-    68% 57%,
-    79% 91%,
-    50% 70%,
-    21% 91%,
-    32% 57%,
-    2% 35%,
-    39% 35%
+  inset: 0;
+  background: radial-gradient(
+    circle at 40% 40%,
+    #19304b 0%,
+    #104e48 50%,
+    #0b1f36 100%
   );
-  opacity: 0.3;
-  filter: blur(4px);
-  animation: float 12s ease-in-out infinite;
+  background-size: 200% 200%;
+  animation: nebulaShift 60s ease infinite;
+  z-index: 0;
 }
 
-.shape:nth-child(1) {
-  width: 200px;
-  height: 200px;
-  background: rgba(255, 255, 255, 0.2);
-  top: 10%;
-  left: 15%;
-  animation-duration: 18s;
-}
-.shape:nth-child(2) {
-  width: 120px;
-  height: 120px;
-  background: rgba(0, 0, 0, 0.1);
-  bottom: 20%;
-  right: 10%;
-  animation-duration: 14s;
-}
-.shape:nth-child(3) {
-  width: 250px;
-  height: 250px;
-  background: rgba(255, 255, 255, 0.15);
-  top: 50%;
-  right: 30%;
-  animation-duration: 22s;
-}
-.shape:nth-child(4) {
-  width: 150px;
-  height: 150px;
-  background: rgba(0, 0, 0, 0.05);
-  bottom: 10%;
-  left: 40%;
-  animation-duration: 16s;
+@keyframes nebulaShift {
+  0%   { background-position: 20% 20%; }
+  50%  { background-position: 80% 80%; }
+  100% { background-position: 20% 20%; }
 }
 
-/* Float keyframes */
-@keyframes float {
-  0%   { transform: translate(0, 0) rotate(0deg); }
-  50%  { transform: translate(20px, -30px) rotate(45deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
+/* —————— 2) Star layers —————— */
+
+/* Shared star styles */
+.layer.stars-layer1,
+.layer.stars-layer2 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
 }
 
-/* 3. Chat container styling */
+/* Far stars: tiny & very slow rotate */
+.layer.stars-layer1 {
+  animation: spinSlow 300s linear infinite;
+}
+@keyframes spinSlow { to { transform: rotate(-360deg); } }
+
+/* Mid stars: larger & faster counter-rotate */
+.layer.stars-layer2 {
+  animation: spinFast 200s linear infinite reverse;
+}
+@keyframes spinFast { to { transform: rotate(-360deg); } }
+
+/* Each star dot */
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  opacity: var(--star-opacity);
+  width: var(--star-size);
+  height: var(--star-size);
+  animation: twinkle 6s ease-in-out infinite var(--star-delay);
+}
+
+/* Twinkle keyframes */
+@keyframes twinkle {
+  0%,100%  { opacity: calc(var(--star-opacity) * 0.3); }
+  50%      { opacity: var(--star-opacity); }
+}
+
+/* —————— 3) Chat container (raise above everything) —————— */
 .chat-container {
   position: relative;
-  background: rgba(255,255,255,0.8);
+  z-index: 1;
+  background: rgba(255,255,255,0.9);
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
   max-width: 400px;
   width: 90%;
-  z-index: 1;
   text-align: center;
 }
+
 .chat-container h1 {
   margin-top: 0;
   font-size: 1.5rem;
@@ -125,6 +115,6 @@ body {
   background: #f5f5f5;
   padding: 1rem;
   border-radius: 8px;
-  max-height: 200px;
-  overflow-y: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
