@@ -53,14 +53,14 @@ body {
     rgba(0,200,150,0.9) 65%,
     rgba(0,20,80,0.9) 100%
   );
-  background-size: 200% 200%;
+  background-size: 300% 300%;
   filter: blur(60px);
   animation: auroraMove 5s ease-in-out infinite alternate;
   z-index: 1;
 }
 @keyframes auroraMove {
-  0%   { background-position: 0%   50%; }
-  100% { background-position: 100% 50%; }
+  0%   { background-position: -25%   50%; }
+  100% { background-position: 125% 50%; }
 }
 
 /* —————— 3) Star Layers (static) —————— */
