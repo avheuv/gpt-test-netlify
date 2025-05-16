@@ -33,7 +33,7 @@ function spawnComet() {
   comet.className = "comet";
 
   // pick a random vertical start
-  const startY = Math.random() * window.innerHeight*2;
+  const startY = Math.random() * window.innerHeight;
 
   // define CSS vars for animation endpoints
   comet.style.setProperty("--start-x", `-50px`);
@@ -52,7 +52,7 @@ function spawnComet() {
 // ======================
 document.addEventListener("DOMContentLoaded", () => {
   // generate bright static stars with pronounced twinkle
-  makeStars(".stars-layer1", 500, [1, 3], [0.6, 1]);  // far layer
+  makeStars(".stars-layer1", 1000, [1, 3], [0.6, 1]);  // far layer
   makeStars(".stars-layer2", 100, [2, 4], [0.6, 1]);  // mid layer
 
   // spawn first comet immediately, then every 7s
