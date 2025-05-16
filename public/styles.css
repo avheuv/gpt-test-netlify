@@ -68,25 +68,24 @@ body {
   overflow: hidden;
 }
 
-/* more pronounced, faster twinkle */
+/* ——— Updated .star section with more pronounced, faster twinkle ——— */
 .star {
-  /* keep your gradient + blur from before */
+  /* size and soft gradient edge */
   width: var(--star-size);
   height: var(--star-size);
   background: radial-gradient(
     circle at center,
-    rgba(255,255,255,var(--star-opacity)) 0%,
-    rgba(255,255,255,0) 80%
+    rgba(255, 255, 255, var(--star-opacity)) 0%,
+    rgba(255, 255, 255, 0) 80%
   );
+  /* soften and glow */
   filter: blur(1px);
-  box-shadow: 0 0 4px rgba(255,255,255,0.6);
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
   border-radius: 50%;
-
-  /* faster pulsation, shorter stagger */
+  /* faster pulsation with staggered start */
   animation: twinkle 2s ease-in-out infinite var(--star-delay);
 }
 
-/* bigger scale, deeper dim->bright contrast */
 @keyframes twinkle {
   0%, 100% {
     opacity: calc(var(--star-opacity) * 0.2);
@@ -97,7 +96,6 @@ body {
     transform: scale(1.5);
   }
 }
-
 
 /* —————— 4) Comet Styling —————— */
 .comet {
