@@ -34,7 +34,7 @@ body {
     #0b1f36 100%
   );
   background-size: 200% 200%;
-  animation: nebulaShift 40s ease-in-out infinite;
+  animation: nebulaShift 5s ease-in-out infinite;
   z-index: 0;
 }
 @keyframes nebulaShift {
@@ -88,7 +88,7 @@ body {
 }
 .layer.stars-layer1 .star {
   /* faster, higher‐contrast pulse */
-  animation: twinkle 5s ease-in-out infinite var(--star-delay);
+  animation: twinkle 5s ease-in-out var(--star-delay) infinite;
 }
 
 /* 3) Ensure the brighter (mid) layer stays static */

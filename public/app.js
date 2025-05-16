@@ -39,7 +39,7 @@ function spawnComet() {
   comet.style.setProperty("--start-x", `-50px`);
   comet.style.setProperty("--start-y", `${startY}px`);
   comet.style.setProperty("--end-x",   `${window.innerWidth + 50}px`);
-  comet.style.setProperty("--end-y",   `${startY - window.innerHeight * 0.4}px`);
+  comet.style.setProperty("--end-y",   `${startY - window.innerHeight * 0.2}px`);
 
   document.body.appendChild(comet);
 
