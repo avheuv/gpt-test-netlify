@@ -29,7 +29,7 @@ function spawnComet() {
   comet.style.setProperty("--end-y",   `${startY - window.innerHeight*0.2}px`);
   document.body.appendChild(comet);
   // remove after animation
-  setTimeout(() => comet.remove(), 2000);
+  setTimeout(() => comet.remove(), 5000);
 }
 
 // Kick everything off once DOM is ready
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Spawn a comet every 5 seconds:
   spawnComet();
-  setInterval(spawnComet, 5000);
+  setInterval(spawnComet, 10000);
 });
 
 // ——— ChatGPT logic below (unchanged) ———
