@@ -46,14 +46,14 @@ body {
 /* —————— 2) Aurora Bands —————— */
 .layer.aurora {
   background: linear-gradient(
-    130deg,
+    100deg,
     rgba(0,20,80,0.3) 0%,
     rgba(0,200,150,0.3) 25%,
     rgba(255,50,50,0.3) 50%,
     rgba(0,200,150,0.3) 75%,
     rgba(0,20,80,0.3) 100%
   );
-  background-size: 400% 400%;
+  background-size: 100% 100%;
   filter: blur(60px);
   animation: auroraMove 5s  ease-in-out infinite alternate;
   z-index: 1;
