@@ -84,11 +84,16 @@ body {
   /* gentle blur + brighter halo */
   filter: blur(1px);
   box-shadow: 0 0 6px rgba(255,255,255,0.8);
-
   border-radius: 50%;
-
+}
+.layer.stars-layer1 .star {
   /* faster, higher‐contrast pulse */
   animation: twinkle 5s ease-in-out infinite var(--star-delay);
+}
+
+/* 3) Ensure the brighter (mid) layer stays static */
+.layer.stars-layer2 .star {
+  animation: none;
 }
 
 @keyframes twinkle {
@@ -113,7 +118,7 @@ body {
   border-radius: 50%;
   box-shadow: 0 0 8px 4px rgba(255,255,255,0.9);
   pointer-events: none;
-  animation: cometMove 5s cubic-bezier(.21,.78,.61,.95) forwards;
+  animation: cometMove 10s cubic-bezier(.21,.78,.61,.95) forwards;
   overflow: visible; /* allow the tail to show */
   z-index: 2;
 }
