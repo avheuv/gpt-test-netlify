@@ -44,7 +44,7 @@ function spawnComet() {
   document.body.appendChild(comet);
 
   // remove when done (match your comet animation duration)
-  setTimeout(() => comet.remove(), 2000);
+  setTimeout(() => comet.remove(), 5000);
 }
 
 // ======================
@@ -55,9 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
   makeStars(".stars-layer1", 200, [1, 3], [0.6, 1]);  // far layer
   makeStars(".stars-layer2", 100, [2, 4], [0.6, 1]);  // mid layer
 
-  // spawn first comet immediately, then every 5s
+  // spawn first comet immediately, then every 7s
   spawnComet();
-  setInterval(spawnComet, 5000);
+  setInterval(spawnComet, 7000);
 });
 
 // ======================

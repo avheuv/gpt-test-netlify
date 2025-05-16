@@ -88,7 +88,7 @@ body {
   border-radius: 50%;
 
   /* faster, higher‐contrast pulse */
-  animation: twinkle 3s ease-in-out infinite var(--star-delay);
+  animation: twinkle 5s ease-in-out infinite var(--star-delay);
 }
 
 @keyframes twinkle {
@@ -121,7 +121,7 @@ body {
   content: "";
   position: absolute;
   /* position the tail so its tip is at the center of the dot */
-  left: -20px;            /* tail length */
+  left: -50px;            /* tail length */
   top: 50%;
   transform: translateY(-50%);
   width: 20px;            /* tail length */
