@@ -53,9 +53,9 @@ body {
     rgba(0,200,150,0.3) 75%,
     rgba(0,20,80,0.3) 100%
   );
-  background-size: 100% 100%;
+  background-size: 400% 400%;
   filter: blur(60px);
-  animation: auroraMove 5s  ease-in-out infinite alternate;
+  animation: auroraMove 30s  ease-in-out infinite alternate;
   z-index: 1;
 }
 @keyframes auroraMove {
