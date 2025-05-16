@@ -1,17 +1,31 @@
 /* styles.css */
 
-/* —————— 1) Base & nebula —————— */
-body {
+/* —————— Base & Centering —————— */
+html, body {
+  height: 100%;
   margin: 0;
+  padding: 0;
+}
+body {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
   overflow-y: auto;
   font-family: sans-serif;
+  background: #000; /* fallback */
 }
 
-/* Nebula background: radial gradient that slowly drifts */
-.layer.nebula {
+/* —————— Layer Defaults —————— */
+.layer {
   position: absolute;
   inset: 0;
+  pointer-events: none;
+}
+
+/* —————— 1) Nebula Gradient —————— */
+.layer.nebula {
   background: radial-gradient(
     circle at 40% 40%,
     #19304b 0%,
@@ -19,61 +33,77 @@ body {
     #0b1f36 100%
   );
   background-size: 200% 200%;
-  animation: nebulaShift 60s ease infinite;
+  animation: nebulaShift 40s ease-in-out infinite;
   z-index: 0;
 }
-
 @keyframes nebulaShift {
   0%   { background-position: 20% 20%; }
   50%  { background-position: 80% 80%; }
   100% { background-position: 20% 20%; }
 }
 
-/* —————— 2) Star layers —————— */
+/* —————— 2) Aurora Bands —————— */
+.layer.aurora {
+  background: linear-gradient(
+    120deg,
+    rgba(255,50,50,0.3) 0%,
+    rgba(0,200,150,0.3) 50%,
+    rgba(0,20,80,0.3) 100%
+  );
+  background-size: 300% 300%;
+  filter: blur(60px);
+  animation: auroraMove 20s ease-in-out infinite alternate;
+  z-index: 1;
+}
+@keyframes auroraMove {
+  0%   { background-position: 0%   50%; }
+  100% { background-position: 100% 50%; }
+}
 
-/* Shared star styles */
+/* —————— 3) Star Layers (static) —————— */
 .layer.stars-layer1,
 .layer.stars-layer2 {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+  z-index: 2;
   overflow: hidden;
-  z-index: 0;
 }
-
-/* Far stars: tiny & very slow rotate */
-.layer.stars-layer1 {
-  animation: spinSlow 300s linear infinite;
-}
-@keyframes spinSlow { to { transform: rotate(-360deg); } }
-
-/* Mid stars: larger & faster counter-rotate */
-.layer.stars-layer2 {
-  animation: spinFast 200s linear infinite reverse;
-}
-@keyframes spinFast { to { transform: rotate(-360deg); } }
 
 /* Each star dot */
 .star {
   position: absolute;
   border-radius: 50%;
-  background: white;
+  background: #fff;
   opacity: var(--star-opacity);
   width: var(--star-size);
   height: var(--star-size);
-  animation: twinkle 6s ease-in-out infinite var(--star-delay);
 }
 
-/* Twinkle keyframes */
-@keyframes twinkle {
-  0%,100%  { opacity: calc(var(--star-opacity) * 0.3); }
-  50%      { opacity: var(--star-opacity); }
+/* —————— 4) Comet Styling —————— */
+.comet {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 8px 4px rgba(255,255,255,0.9);
+  pointer-events: none;
+  animation: cometMove 2s linear forwards;
+  z-index: 2;
+}
+@keyframes cometMove {
+  from {
+    transform: translate(var(--start-x), var(--start-y));
+    opacity: 1;
+  }
+  to {
+    transform: translate(var(--end-x), var(--end-y));
+    opacity: 0;
+  }
 }
 
-/* —————— 3) Chat container (raise above everything) —————— */
+/* —————— 5) Chat Container —————— */
 .chat-container {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   background: rgba(255,255,255,0.9);
   padding: 2rem;
   border-radius: 16px;

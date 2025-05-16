@@ -1,8 +1,5 @@
 // public/app.js
 
-// ======================
-// Starfield generator
-// ======================
 function makeStars(layerSelector, count, sizeRange, opacityRange) {
   const layer = document.querySelector(layerSelector);
   const { innerWidth: W, innerHeight: H } = window;
@@ -10,37 +7,44 @@ function makeStars(layerSelector, count, sizeRange, opacityRange) {
   for (let i = 0; i < count; i++) {
     const star = document.createElement("div");
     star.className = "star";
-
-    // random size and opacity
     const size    = Math.random() * (sizeRange[1] - sizeRange[0]) + sizeRange[0];
     const opacity = Math.random() * (opacityRange[1] - opacityRange[0]) + opacityRange[0];
-    const delay   = Math.random() * 6; // twinkle offset
-
-    // position anywhere on screen
     star.style.setProperty("--star-size", `${size}px`);
     star.style.setProperty("--star-opacity", opacity);
-    star.style.setProperty("--star-delay", `${delay}s`);
     star.style.left = `${Math.random() * W}px`;
     star.style.top  = `${Math.random() * H}px`;
-
     layer.appendChild(star);
   }
 }
 
-// 1) Load any existing conversation state
-let responseId = localStorage.getItem("chatResponseId") || null;
+// Spawn a single comet across the screen
+function spawnComet() {
+  const comet = document.createElement("div");
+  comet.className = "comet";
+  const startY = Math.random() * window.innerHeight;
+  // diagonal from left→top-right
+  comet.style.setProperty("--start-x", `-50px`);
+  comet.style.setProperty("--start-y", `${startY}px`);
+  comet.style.setProperty("--end-x",   `${window.innerWidth + 50}px`);
+  comet.style.setProperty("--end-y",   `${startY - window.innerHeight*0.2}px`);
+  document.body.appendChild(comet);
+  // remove after animation
+  setTimeout(() => comet.remove(), 2000);
+}
 
-// 2) Once the DOM is ready, generate the stars
+// Kick everything off once DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
-  // Far layer: 200 tiny stars
-  makeStars(".stars-layer1", 200, [1, 2], [0.1, 0.2]);
-  // Mid layer: 80 medium stars
-  makeStars(".stars-layer2",  80, [3, 5], [0.3, 0.6]);
+  // Brighter static stars:
+  makeStars(".stars-layer1", 200, [1, 3], [0.6, 1]);  // far layer
+  makeStars(".stars-layer2", 100, [2, 4], [0.6, 1]);  // mid layer
+
+  // Spawn a comet every 5 seconds:
+  spawnComet();
+  setInterval(spawnComet, 5000);
 });
 
-// ======================
-// ChatGPT interaction
-// ======================
+// ——— ChatGPT logic below (unchanged) ———
+let responseId = localStorage.getItem("chatResponseId") || null;
 async function sendPrompt() {
   const promptInput  = document.getElementById("prompt");
   const responseElem = document.getElementById("response");
