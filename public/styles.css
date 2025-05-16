@@ -13,6 +13,7 @@ body {
   align-items: center;
   min-height: 100vh;
   overflow-y: auto;
+  overflow-x: hidden;
   font-family: sans-serif;
   background: #000; /* fallback */
 }
@@ -80,6 +81,8 @@ body {
 /* —————— 4) Comet Styling —————— */
 .comet {
   position: absolute;
+  left: 0;
+  top: 0;
   width: 4px;
   height: 4px;
   background: rgba(255,255,255,0.9);
@@ -87,7 +90,24 @@ body {
   box-shadow: 0 0 8px 4px rgba(255,255,255,0.9);
   pointer-events: none;
   animation: cometMove 2s linear forwards;
+  overflow: visible; /* allow the tail to show */
   z-index: 2;
+}
+.comet::before {
+  content: "";
+  position: absolute;
+  /* position the tail so its tip is at the center of the dot */
+  left: -20px;            /* tail length */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;            /* tail length */
+  height: 2px;            /* tail thickness */
+  background: linear-gradient(
+    to left,
+    rgba(255,255,255,0.8),
+    rgba(255,255,255,0)
+  );
+  filter: blur(2px);
 }
 @keyframes cometMove {
   from {
