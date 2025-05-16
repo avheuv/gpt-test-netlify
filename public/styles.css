@@ -121,17 +121,17 @@ body {
   content: "";
   position: absolute;
   /* position the tail so its tip is at the center of the dot */
-  left: -50px;            /* tail length */
+  left: -40px;            /* tail length */
   top: 50%;
   transform: translateY(-50%);
-  width: 20px;            /* tail length */
-  height: 2px;            /* tail thickness */
+  width: 40px;            /* tail length */
+  height: 4px;            /* tail thickness */
   background: linear-gradient(
     to left,
     rgba(255,255,255,0.8),
     rgba(255,255,255,0)
   );
-  filter: blur(2px);
+  filter: blur(4px);
 }
 @keyframes cometMove {
   from {
