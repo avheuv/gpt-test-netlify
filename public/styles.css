@@ -88,12 +88,12 @@ body {
   border-radius: 50%;
 
   /* faster, higher‐contrast pulse */
-  animation: twinkle 2s ease-in-out infinite var(--star-delay);
+  animation: twinkle 3s ease-in-out infinite var(--star-delay);
 }
 
 @keyframes twinkle {
   0%, 100% {
-    opacity: calc(var(--star-opacity) * 0.2);
+    opacity: calc(var(--star-opacity) * 0.8);
     transform: scale(0.8);
   }
   50% {
