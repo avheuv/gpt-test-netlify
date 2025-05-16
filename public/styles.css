@@ -1,10 +1,8 @@
-/* styles.css */
-
-/* 1. Full‐screen, animated gradient background */
+/* 1) Let the page scroll if content grows */
 body {
   margin: 0;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;        /* allow content to push beyond one screen */
+  overflow-y: auto;         
   display: grid;
   place-items: center;
   font-family: sans-serif;
@@ -13,99 +11,38 @@ body {
   animation: gradientShift 20s ease infinite;
 }
 
-/* Gradient animation */
-@keyframes gradientShift {
-  0%   { background-position: 0%   50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0%   50%; }
-}
-
-/* 2. Floating geometric shapes */
-.shape {
+/* 2) Particle container sits behind everything */
+#tsparticles {
   position: absolute;
-  border-radius: 20%;
-  opacity: 0.3;
-  filter: blur(4px);
-  animation: float 12s ease-in-out infinite;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
-/* Different sizes, colors, positions */
-.shape:nth-child(1) {
-  width: 200px; height: 200px;
-  background: rgba(255,255,255,0.2);
-  top: 10%; left: 15%;
-  animation-duration: 18s;
-}
-.shape:nth-child(2) {
-  width: 120px; height: 120px;
-  background: rgba(0,0,0,0.1);
-  bottom: 20%; right: 10%;
-  animation-duration: 14s;
-}
-.shape:nth-child(3) {
-  width: 250px; height: 250px;
-  background: rgba(255,255,255,0.15);
-  top: 50%; right: 30%;
-  animation-duration: 22s;
-}
-.shape:nth-child(4) {
-  width: 150px; height: 150px;
-  background: rgba(0,0,0,0.05);
-  bottom: 10%; left: 40%;
-  animation-duration: 16s;
-}
-
-/* Float keyframes */
-@keyframes float {
-  0%   { transform: translate(0, 0)    rotate(0deg); }
-  50%  { transform: translate(20px, -30px) rotate(45deg); }
-  100% { transform: translate(0, 0)    rotate(0deg); }
-}
-
-/* 3. Chat container styling */
+/* 3) Chat box floats above particles */
 .chat-container {
   position: relative;
-  background: rgba(255,255,255,0.8);
+  z-index: 1;
+  background: rgba(255,255,255,0.9);
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
   max-width: 400px;
   width: 90%;
-  z-index: 1;
   text-align: center;
 }
-.chat-container h1 {
-  margin-top: 0;
-  font-size: 1.5rem;
-}
-.chat-container textarea {
-  width: 100%;
-  font-size: 1rem;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  resize: vertical;
-}
-.chat-container button {
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  background: #2575fc;
-  color: white;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-.chat-container button:hover {
-  background: #1a5ac8;
-}
+
+/* 4) Let <pre> expand as needed */
 .chat-container pre {
   text-align: left;
   margin-top: 1rem;
   background: #f5f5f5;
   padding: 1rem;
   border-radius: 8px;
-  max-height: 200px;
-  overflow-y: auto;
+  white-space: pre-wrap;      /* wrap long lines */
+  word-wrap: break-word;
+  /* remove any max-height/overflow that caused scrolling */
+  max-height: none;
+  overflow: visible;
 }
