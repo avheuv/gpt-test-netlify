@@ -15,7 +15,7 @@ function makeStars(layerSelector, count, sizeRange, opacityRange) {
     // random size and opacity
     const size    = Math.random() * (sizeRange[1] - sizeRange[0]) + sizeRange[0];
     const opacity = Math.random() * (opacityRange[1] - opacityRange[0]) + opacityRange[0];
-    const delay   = Math.random() * 2;  // twinkle delay between 0s–2s
+    const delay   = Math.random() * 5;  // twinkle delay between 0s–2s
 
     // position anywhere on screen
     star.style.setProperty("--star-size", `${size}px`);
@@ -44,7 +44,7 @@ function spawnComet() {
   document.body.appendChild(comet);
 
   // remove when done (match your comet animation duration)
-  setTimeout(() => comet.remove(), 10000);
+  setTimeout(() => comet.remove(), 5000);
 }
 
 // ======================
