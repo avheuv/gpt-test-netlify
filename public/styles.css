@@ -90,7 +90,7 @@ body {
 }
 .layer.stars-layer1 .star {
   /* faster, higher‐contrast pulse */
-  animation: twinkle 5s ease-in-out var(--star-delay) infinite;
+  animation: twinkle 2s ease-in-out var(--star-delay) infinite;
 }
 
 /* 3) Ensure the brighter (mid) layer stays static */
@@ -100,12 +100,12 @@ body {
 
 @keyframes twinkle {
   0%, 100% {
-    opacity: calc(var(--star-opacity) * 0.6);
+    opacity: calc(var(--star-opacity) * 0.5);
     transform: scale(0.8);
   }
   50% {
     opacity: var(--star-opacity);
-    transform: scale(1.5);
+    transform: scale(1.6);
   }
 }
 
@@ -162,6 +162,7 @@ body {
   max-width: 400px;
   width: 90%;
   text-align: center;
+  transform: translateY(-60px);  /* move up 60px; tweak to taste */
 }
 
 .chat-container h1 {
@@ -216,4 +217,16 @@ body {
   color: inherit;        /* link stays white */
   text-decoration: underline;
   pointer-events: auto;  /* allow clicks on the link */
+}
+
+/* 6) Page title, centered at top */
+.page-title {
+  position: absolute;
+  top: 8%;                       /* adjust up/down as desired */
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 2rem;
+  z-index: 4;
+  pointer-events: none;
 }
