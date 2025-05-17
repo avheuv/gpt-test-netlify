@@ -177,7 +177,6 @@ body {
   border-radius: 8px;
   resize: vertical;
 }
-/* ——————— Chat Button — new space-vibe style ——————— */
 .chat-container button {
   margin-top: 1rem;
   padding: 0.75rem 2rem;
@@ -185,29 +184,30 @@ body {
   font-weight: 600;
   border: none;
   border-radius: 8px;
-  
-  /* gradient echoing nebula/aurora hues */
   background: linear-gradient(
     135deg,
     rgba(0,200,150,0.8),
     rgba(50,150,200,0.8)
   );
-  
   color: white;
   cursor: pointer;
-  
-  /* subtle glow */
-  box-shadow: 0 0 12px rgba(0,200,150,0.6), 
-              0 4px 12px rgba(0,0,0,0.2);
-  
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow:
+    0 0 12px rgba(0,200,150,0.6),
+    0 4px 12px rgba(0,0,0,0.2);
+  transition: box-shadow 0.1s ease, transform 0.1s ease;
 }
 
+/* Remove hover lift entirely */
 .chat-container button:hover {
-  /* lift and intensify glow on hover */
-  transform: translateY(-2px);
-  box-shadow: 0 0 20px rgba(0,200,150,0.8),
-              0 6px 16px rgba(0,0,0,0.3);
+  /* no change on hover */
+}
+
+/* Depress effect on active (click) */
+.chat-container button:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 0 8px rgba(0,200,150,0.4),
+    0 2px 8px rgba(0,0,0,0.2);
 }
 
 .chat-container pre {
