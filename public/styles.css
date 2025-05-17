@@ -162,7 +162,7 @@ body {
   max-width: 650px;
   width: 80%;
   text-align: center;
-  transform: translateY(-120px);  /* move up 60px; tweak to taste */
+  transform: translateY(-150px);  /* move up 60px; tweak to taste */
 }
 
 .chat-container h1 {
@@ -241,7 +241,7 @@ body {
 /* 6) Page title, centered at top */
 .page-title {
   position: absolute;
-  top: 8%;                       /* adjust up/down as desired */
+  top: 4%;                       /* adjust up/down as desired */
   left: 50%;
   transform: translateX(-50%);
   color: white;
