@@ -155,10 +155,10 @@ body {
 .chat-container {
   position: relative;
   z-index: 3;
-  background: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.7);
   padding: 2rem;
   border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 24px rgb(211, 207, 207);
   max-width: 650px;
   width: 80%;
   text-align: center;
