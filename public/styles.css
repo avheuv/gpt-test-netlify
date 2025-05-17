@@ -158,11 +158,11 @@ body {
   background: rgba(255,255,255,0.9);
   padding: 2rem;
   border-radius: 16px;
-  box-shadow: 0 0px 18px rgb(211, 207, 207, 0.7);
+  box-shadow: 0 0px 14px rgb(211, 207, 207, 0.7);
   max-width: 650px;
   width: 80%;
   text-align: center;
-  transform: translateY(-150px);  /* move up 60px; tweak to taste */
+  transform: translateY(-180px);  /* move up 60px; tweak to taste */
 }
 
 .chat-container h1 {
@@ -241,11 +241,24 @@ body {
 /* 6) Page title, centered at top */
 .page-title {
   position: absolute;
-  top: 4%;                       /* adjust up/down as desired */
+  top: 4%;
   left: 50%;
   transform: translateX(-50%);
-  color: white;
-  font-size: 2rem;
+  
+  /* 2a) Modern font + sizing */
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  
+  /* 2b) Pure white + subtle glow */
+  color: #ffffff;
+  text-shadow:
+    /* soft edge glow */
+    0 2px 4px rgba(255,255,255,0.5),
+    /* broader halo */
+    0 0 12px rgba(255,255,255,0.3);
+  
+  letter-spacing: 0.5px;
   z-index: 4;
   pointer-events: none;
 }
