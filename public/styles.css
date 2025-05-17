@@ -241,7 +241,7 @@ body {
 /* 6) Page title, centered at top */
 .page-title {
   position: absolute;
-  top: 4%;
+  top: 2%;
   left: 50%;
   transform: translateX(-50%);
   
@@ -254,7 +254,7 @@ body {
   color: #ffffff;
   text-shadow:
     /* soft edge glow */
-    0 2px 4px rgba(255,255,255,0.5),
+    0 0px 6px rgba(255,255,255,0.5),
     /* broader halo */
     0 0 12px rgba(255,255,255,0.3);
   
