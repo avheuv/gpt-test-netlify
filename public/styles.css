@@ -7,15 +7,14 @@ html, body {
   padding: 0;
 }
 body {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  overflow-y: auto;
   overflow-x: hidden;
   font-family: sans-serif;
-  background: #000; /* fallback */
+  background: #000;
+  padding: 0; /* remove any extra */
 }
 
 /* —————— Layer Defaults —————— */
@@ -158,13 +157,13 @@ body {
   background: rgba(255,255,255,0.9);
   padding: 2rem;
   border-radius: 16px;
-  box-shadow: 0 0px 14px rgb(211, 207, 207, 0.7);
-  max-width: 650px;
-  width: 80%;
-  text-align: center;
+  box-shadow: 0 0px 14px rgba(211,207,207,0.7);
+
+  /* clamp: never narrower than 300px, ideal 80vw, never wider than 650px */
+  width: clamp(300px, 80vw, 650px);
+
+  /* remove transform; let flex centering handle vertical */
   transform: none;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
 }
 
 .chat-container h1 {
@@ -272,17 +271,25 @@ body {
 
 /* ——— Responsive adjustments ——— */
 @media (max-width: 600px) {
-  /* shrink title so it never wraps */
-  .page-title {
-    font-size: 1.75rem;
-    top: 4%;            /* move it down just a touch */
+  /* Switch to normal flow so long pages scroll naturally */
+  body {
+    display: block;
+    padding: 2rem 0;      /* some breathing room top/bottom */
   }
 
-  /* let the chat box fill more of the screen */
+  /* Center box horizontally and give extra margin top/bottom */
   .chat-container {
-    width: 95%;
-    padding: 1rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin: 1rem auto;    /* 1rem top/bottom, auto left/right */
+    padding: 1rem;        /* a bit less padding on small screens */
+    width: 90%;           /* nearly full width */
+  }
+
+  /* Shrink title so it never wraps */
+  .page-title {
+    font-size: 1.75rem;
+    top: 3%;              /* lower a tiny bit */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
